@@ -765,6 +765,9 @@ split
 
     foreach(string goal in vars.goals.Keys)
     {
+        if(version == "DEMO" && !goal.StartsWith("demo-"))
+            continue;
+
         // is this an enabled split that is armed?
         if(settings[goal] && !vars.goals[goal][vars.visited])
         {
