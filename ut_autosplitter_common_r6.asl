@@ -25,16 +25,15 @@ state("Undertale", "v1.001")
     float handhold : 0x59E470, 0xA0, 0x7C;
 
     double kpointer : 0x39A148, 0x4, 0x40, 0x4, 0x4, 0xC80;
-    double cur_kills : 0x39A148, 0x4, 0x40, 0x4, 0x4, 0xC90;
     double mdrcnt : 0x39A148, 0x4, 0x1E0;
     double kills_ruins : 0x39A148, 0x4, 0x40, 0x4, 0x4, 0xCA0;
     double kills_tundra : 0x39A148, 0x4, 0x40, 0x4, 0x4, 0xCB0;
     double kills_waterfall : 0x39A148, 0x4, 0x40, 0x4, 0x4, 0xCC0;
     double kills_hotland : 0x39A148, 0x4, 0x40, 0x4, 0x4, 0xCD0;
 
-    double spears2_con : 0x399E64, 0x0, 0x10C, 0xC, 0xB0, 0x8, 0x140, 0x4, 0x200;
     double status_undyne : 0x39A148, 0x4, 0x40, 0x4, 0x4, 0x1850;
-    double asgore_stage : 0x399E64, 0x0, 0xF68, 0xC, 0xB0, 0x8, 0x4, 0x200;
+    float fakesoul_x : 0x399E5C, 0x4C, 0xB0, 0x8, 0x7C;
+    int sound : 0x39B224, 0x0, 0x18;
 }
 
 state("Undertale", "v1.001 Linux")
@@ -49,16 +48,15 @@ state("Undertale", "v1.001 Linux")
     float handhold : 0x59F504, 0x8, 0x7C;
 
     double kpointer : 0x39B1E8, 0x4, 0x40, 0x4, 0x4, 0xC80;
-    double cur_kills : 0x39B1E8, 0x4, 0x40, 0x4, 0x4, 0xC90;
     double mdrcnt : 0x39B1E8, 0x4, 0x1E0;
     double kills_ruins : 0x39B1E8, 0x4, 0x40, 0x4, 0x4, 0xCA0;
     double kills_tundra : 0x39B1E8, 0x4, 0x40, 0x4, 0x4, 0xCB0;
     double kills_waterfall : 0x39B1E8, 0x4, 0x40, 0x4, 0x4, 0xCC0;
     double kills_hotland : 0x39B1E8, 0x4, 0x40, 0x4, 0x4, 0xCD0;
 
-    double spears2_con : 0x39AF04, 0x0, 0x10C, 0xC, 0xB0, 0x8, 0x140, 0x4, 0x200;
     double status_undyne : 0x39B1E8, 0x4, 0x40, 0x4, 0x4, 0x1850;
-    double asgore_stage : 0x39AF04, 0x0, 0xF68, 0xC, 0xB0, 0x8, 0x4, 0x200;
+    float fakesoul_x : 0x39AEFC, 0x4C, 0xB0, 0x8, 0x7C;
+    int sound : 0x39C2C4, 0x0, 0x18;
 }
 
 state("Undertale", "v1.05")
@@ -80,6 +78,8 @@ state("Undertale", "v1.05")
     double kills_hotland : 0x40894C, 0x44, 0x10, 0xA0, 0x0, 0x24, 0x4, 0xCD0;
 
     double status_undyne : 0x40894C, 0x44, 0x10, 0xA0, 0x0, 0x24, 0x4, 0x1850;
+    float fakesoul_x : 0x408614, 0x5C, 0xD0, 0x8, 0x9C;
+    int sound : 0x409A2C, 0x0, 0x18;
 }
 
 state("Undertale", "v1.08")
@@ -101,6 +101,8 @@ state("Undertale", "v1.08")
     double kills_hotland : 0x40894C, 0x44, 0x10, 0xA0, 0x0, 0x24, 0x4, 0xCD0;
 
     double status_undyne : 0x40894C, 0x44, 0x10, 0xA0, 0x0, 0x24, 0x4, 0x1850;
+    float fakesoul_x : 0x408614, 0x5C, 0xD0, 0x8, 0x9C;
+    int sound : 0x409A2C, 0x0, 0x18;
 }
 
 state("Undertale", "v1.08 GOG")
@@ -122,6 +124,8 @@ state("Undertale", "v1.08 GOG")
     double kills_hotland : 0x40894C, 0x44, 0x10, 0xA0, 0x0, 0x24, 0x4, 0xCD0;
 
     double status_undyne : 0x40894C, 0x44, 0x10, 0xA0, 0x0, 0x24, 0x4, 0x1850;
+    float fakesoul_x : 0x408614, 0x5C, 0xD0, 0x8, 0x9C;
+    int sound : 0x409A2C, 0x0, 0x18;
 }
 
 startup
@@ -149,7 +153,7 @@ startup
     settings.Add("castle", true, "New Home");
     settings.Add("truepac", true, "True Pacifist");
     settings.Add("genokills", true, "Genocide");
-    settings.Add("misc", true, "Text Display (updates on room changes)");
+    settings.Add("misc", true, "Text Display");
 
     settings.Add("r-singlerock", false, "Exit Single Rock Room", "ruins");
     settings.Add("b-endnapsta", false, "End Napstablook Fight", "ruins");
@@ -172,8 +176,8 @@ startup
     settings.Add("r-spears1", false, "First Undyne Spears", "waterfall");
     settings.Add("r-epc", false, "Early Punch Card Ending", "waterfall");
     settings.Add("r-onionsan", false, "Exit Onion-san Room", "waterfall");
-    settings.Add("f-spears2bridge", false, "Second Undyne Spears (bridge broken, works only in v1.001)", "waterfall");
-    settings.Add("f-spears2cut", false, "Second Undyne Spears (cut to black, works only in v1.001)", "waterfall");
+    settings.Add("f-spears2bridge", false, "Second Undyne Spears (bridge broken)", "waterfall");
+    settings.Add("f-spears2cut", false, "Second Undyne Spears (cut to black)", "waterfall");
     settings.Add("r-spears2", false, "Second Undyne Spears (room change)", "waterfall");
     settings.Add("b-startdummy", false, "Start Mad Dummy Fight", "waterfall");
     settings.Add("b-enddummy", false, "End Mad Dummy Fight", "waterfall");
@@ -221,7 +225,7 @@ startup
     settings.Add("f-genoend", false, "Genocide Ending", "castle");
     settings.Add("b-enterbarrier", false, "Enter The Barrier Room", "castle");
     settings.Add("b-startasgore", false, "Start Neutral Asgore Fight", "castle");
-    settings.Add("b-killasgore", false, "Kill Asgore (works only in v1.001)", "castle");
+    settings.Add("b-killasgore", false, "Kill Asgore", "castle");
     settings.Add("b-endasgore", false, "End Asgore Fight", "castle");
     settings.Add("p-neutralend", false, "Neutral Ending", "castle");
 
@@ -332,7 +336,7 @@ startup
         {"f-genoend",           new object[] {false, -1, -1,  -1, 306,  -1,  9}},
         {"b-enterbarrier",      new object[] {false, -1, -1, 236, 237,  -1, -1}},
         {"b-startasgore",       new object[] {false, -1, -1, 237, 306, 100, -1}},
-        {"b-killasgore",        new object[] {false, -1, -1,  -1,  -1, 100, 10}},
+        {"b-killasgore",        new object[] {false, -1, -1,  -1, 306, 100, 10}},
         {"b-endasgore",         new object[] {false, -1, -1, 306, 322, 100, -1}},
         {"p-neutralend",        new object[] {false, -1, 30,  -1, 238,  -1, -1}},
 
@@ -398,7 +402,6 @@ startup
 
 init
 {
-    vars.killAreaSet = false;
     vars.justStarted = true;
 
     var module = modules.First();
@@ -478,30 +481,8 @@ update
         return false;
 
     current.phase = timer.CurrentPhase;
-    if(vars.justStarted)
-    {
-        vars.justStarted = false;
-    }
-    else
-    {
-        // Did the timer just start?
-        if(current.phase == TimerPhase.Running && old.phase == TimerPhase.NotRunning)
-        {
-            vars.reactivate();
-
-            // Log what splits have been selected
-            string splitState = "";
-
-            foreach(string goal in vars.goals.Keys)
-                splitState += (settings[goal]) ? "1" : "0";
-
-            vars.log("STATE  " + splitState);
-        }
-
-        // Did the timer just stop?
-        else if(current.phase == TimerPhase.NotRunning && old.phase == TimerPhase.Running)
-            vars.log("PHASE  " + old.phase.ToString() + " -> " + current.phase.ToString());
-    }
+    if(!vars.justStarted && old.phase != current.phase)
+        vars.log("PHASE  " + old.phase.ToString() + " -> " + current.phase.ToString());
 
     current.room = game.ReadValue<int>((IntPtr)vars.ptrRoomID);
 
@@ -525,7 +506,7 @@ update
         }
     }
 
-    if(old.room != current.room)
+    if(vars.justStarted || old.mdrcnt != current.mdrcnt || old.kpointer != current.kpointer || old.kills_ruins != current.kills_ruins || old.kills_tundra != current.kills_tundra || old.kills_waterfall != current.kills_waterfall || old.kills_hotland != current.kills_hotland)
     {
         switch((int)current.kpointer)
         {
@@ -592,6 +573,9 @@ update
             }
         }
     }
+
+    if(vars.justStarted)
+        vars.justStarted = false;
 }
 
 start
@@ -600,7 +584,7 @@ start
         vars.log("EVENT room r{" + old.room + "," + current.room + "} s{" + old.start + "," + current.start + "}");
 
     // With a new file, this gets set when player hits "Yes"
-    if(current.room == 3 && old.start == 2 && current.start > 2)
+    if(current.room == 3 && old.start == 2 && current.start > 3)
     {
         vars.log("EVENT start (new file)");
         return true;
@@ -616,7 +600,7 @@ start
 
 reset
 {
-    if(current.room == 3 && old.start == 2 && current.start > 2)
+    if(current.room == 3 && old.start == 2 && current.start > 3)
     {
         vars.log("EVENT reset (new file)");
         return true;
@@ -627,6 +611,19 @@ reset
         vars.log("EVENT reset (with save file)");
         return true;
     }
+}
+
+onStart
+{
+    vars.reactivate();
+
+    // Log what splits have been selected
+    string splitState = "";
+
+    foreach(string goal in vars.goals.Keys)
+        splitState += (settings[goal]) ? "1" : "0";
+
+    vars.log("STATE  " + splitState);
 }
 
 split
@@ -685,15 +682,11 @@ split
                         break;
 
                     case 2: // f-spears2bridge
-                        if(version == "v1.001" || version == "v1.001 Linux")
-                            pass = (old.spears2_con == 9 && current.spears2_con > 9);
-
+                        pass = (old.sound == 13 && current.sound == 20);
                         break;
 
                     case 3: // f-spears2cut
-                        if(version == "v1.001" || version == "v1.001 Linux")
-                            pass = (old.spears2_con == 14 && current.spears2_con > 14);
-
+                        pass = (old.sound == 20 && current.sound == 22);
                         break;
 
                     case 4: // f-temmie
@@ -721,9 +714,7 @@ split
                         break;
 
                     case 10: // b-killasgore
-                        if(version == "v1.001" || version == "v1.001 Linux")
-                            pass = (old.asgore_stage != 46 && current.asgore_stage == 46);
-
+                        pass = (old.fakesoul_x > 60 && old.fakesoul_x < 200 && current.fakesoul_x == 0);
                         break;
 
                     case 11: // r-undynedate
