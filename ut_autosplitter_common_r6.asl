@@ -164,6 +164,7 @@ startup
     settings.Add("p-exitruins", false, "Touch Ruins Exit Door", "ruins");
 
     settings.Add("b-enddoggo", false, "End Doggo Fight", "tundra");
+    settings.Add("r-shockmaze", false, "Exit Electric Maze Room", "tundra");
     settings.Add("b-enddogi", false, "End Dogamy & Dogaressa Fight", "tundra");
     settings.Add("p-icepuzzle", false, "Complete Ice Puzzle", "tundra");
     settings.Add("b-greaterdog", false, "End Greater Dog Fight", "tundra");
@@ -272,6 +273,7 @@ startup
 
         // Snowdin
         {"b-enddoggo",   new object[] {false, 106, -1, 306, 49, 23, -1}},
+        {"r-shockmaze",  new object[] {false, 106, -1,  52, 53, -1, -1}},
         {"b-enddogi",    new object[] {false, 106, -1, 306, 57, 25, -1}},
         {"p-icepuzzle",  new object[] {false, 106, 63,  -1, 63, -1, -1}},
         {"b-greaterdog", new object[] {false, 106, -1, 306, 66, 26, -1}},

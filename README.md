@@ -1,8 +1,8 @@
 # Undertale Autosplitter (for 1.001/1.05/1.08)
 ## Download
-### - Main Script [r6v8 - 03/21/26]
+### - Main Script [r6v9 - 03/21/26]
 [Download](https://raw.githubusercontent.com/antimYT/Undertale-Autosplitter/master/ut_autosplitter_common_r6.asl) (RMB → Save as...)
-### - Category Extensions Script [r2v4 - 03/21/26]
+### - Category Extensions Script [r2v5 - 03/21/26]
 [Download](https://raw.githubusercontent.com/antimYT/Undertale-Autosplitter/master/ut_autosplitter_common_cat_r2.asl) (RMB → Save as...)
 
 ## How to install
