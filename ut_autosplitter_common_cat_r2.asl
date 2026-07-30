@@ -190,6 +190,8 @@ startup
 
     settings.Add("r-singlerock", false, "Exit Single Rock Room", "ruins");
     settings.Add("b-endnapsta", false, "End Napstablook Fight", "ruins");
+    settings.Add("r-exitnapsta", false, "Exit Napstablook Battle Room", "ruins");
+    settings.Add("r-exitnapstas", false, "Exit Napstablook Battle Room (with Spider Donut/Cider)", "ruins");
     settings.Add("r-torielhouse", false, "Enter Toriel's House", "ruins");
     settings.Add("b-starttoriel", false, "Start Toriel Fight", "ruins");
     settings.Add("b-endtoriel", false, "End Toriel Fight", "ruins");
@@ -241,6 +243,7 @@ startup
     settings.Add("b-endmuffet", false, "End Muffet Fight", "hotlands");
     settings.Add("r-muffet", false, "Exit Muffet Room", "hotlands");
     settings.Add("r-operaskip", false, "Skip Opera", "hotlands");
+    settings.Add("r-colorpuzzle", false, "Exit Color Tile Puzzle Room", "hotlands");
     settings.Add("r-operamenu", false, "Regain menu after Opera Skip", "hotlands");
     settings.Add("r-rf3", false, "Enter Right Floor 3", "hotlands");
     settings.Add("r-entercore", false, "Enter CORE", "hotlands");
@@ -266,6 +269,7 @@ startup
     settings.Add("r-undynedate", false, "Finish Undyne Date", "truepac");
     settings.Add("r-alphys", false, "Finish Alphys Date", "truepac");
     settings.Add("r-startlab", false, "Enter True Lab", "truepac");
+    settings.Add("f-endlabtext", false, "Close final True Lab textbox", "truepac");
     settings.Add("r-endlab", false, "Exit True Lab", "truepac");
     settings.Add("b-startasriel", false, "Start Asriel Fight", "truepac");
     settings.Add("b-onewingangel", false, "Asriel Dreemurr Final Form", "truepac");
@@ -319,6 +323,8 @@ startup
         // Ruins
         {"r-singlerock",  new object[] {false, 30, -1,  15,  16, -1, -1}},
         {"b-endnapsta",   new object[] {false, 30, -1, 306,  19, 20, -1}},
+        {"r-exitnapsta",  new object[] {false, 30, -1,  19,  21, -1, -1}},
+        {"r-exitnapstas", new object[] {false, 30, -1,  19,  21, -1,  1}},
         {"r-torielhouse", new object[] {false, 30, -1,  31,  32, -1, -1}},
         {"b-starttoriel", new object[] {false, 30, -1,  41, 306, 22, -1}},
         {"b-endtoriel",   new object[] {false, 30, -1, 306,  41, 22, -1}},
@@ -332,7 +338,7 @@ startup
         {"p-icepuzzle",  new object[] {false, 106, 63,  -1, 63, -1, -1}},
         {"b-greaterdog", new object[] {false, 106, -1, 306, 66, 26, -1}},
         {"r-entersnow",  new object[] {false, 106, -1,  67, 68, -1, -1}},
-        {"f-papyrus",    new object[] {false, 106, -1,  -1, 81, -1,  1}},
+        {"f-papyrus",    new object[] {false, 106, -1,  -1, 81, -1,  2}},
         {"r-papdate",    new object[] {false, 106, -1, 317, 77, -1, -1}},
         {"r-exitsnow",   new object[] {false, 106, -1,  81, 82, -1, -1}},
 
@@ -341,16 +347,16 @@ startup
         {"r-spears1",       new object[] {false, 126, -1,  93,  94, -1, -1}},
         {"r-epc",           new object[] {false, 126, -1,  95,  96, -1, -1}},
         {"r-onionsan",      new object[] {false, 126, -1, 100, 101, -1, -1}},
-        {"f-spears2bridge", new object[] {false, 126, -1,  -1, 112, -1,  2}},
-        {"f-spears2cut",    new object[] {false, 126, -1,  -1, 112, -1,  3}},
+        {"f-spears2bridge", new object[] {false, 126, -1,  -1, 112, -1,  3}},
+        {"f-spears2cut",    new object[] {false, 126, -1,  -1, 112, -1,  4}},
         {"r-spears2",       new object[] {false, 126, -1, 112, 113, -1, -1}},
         {"b-startdummy",    new object[] {false, 126, -1, 115, 306, 45, -1}},
         {"b-enddummy",      new object[] {false, 126, -1, 306, 115, 45, -1}},
         {"r-exitdummy",     new object[] {false, 126, -1, 115, 116, -1, -1}},
         {"b-endglad",       new object[] {false, 126, -1, 306, 115, 93, -1}},
-        {"f-temmie",        new object[] {false, 126, -1,  -1, 315, -1,  4}},
+        {"f-temmie",        new object[] {false, 126, -1,  -1, 315, -1,  5}},
         {"r-flowerflow",    new object[] {false, 126, -1, 129, 130, -1, -1}},
-        {"r-flowerflow18k", new object[] {false, 126, -1, 129, 130, -1,  5}},
+        {"r-flowerflow18k", new object[] {false, 126, -1, 129, 130, -1,  6}},
         {"b-startundying",  new object[] {false, 126, -1,  -1, 306, 92, -1}},
         {"b-endundying",    new object[] {false, 126, -1, 306, 132, 92, -1}},
         {"r-exitmkbridge",  new object[] {false, 126, -1, 132, 133, -1, -1}},
@@ -364,7 +370,7 @@ startup
         {"r-cookingshow", new object[] {false, 199,  -1, 154, 155, -1, -1}},
         {"r-cookingmenu", new object[] {false, 199, 137, 138, 137, -1, -1}},
         {"r-rf2",         new object[] {false, 199,  -1, 213, 157, -1, -1}},
-        {"b-endrgfight",  new object[] {false, 199,  -1, 306,  -1, 49,  6}},
+        {"b-endrgfight",  new object[] {false, 199,  -1, 306,  -1, 49,  7}},
         {"r-newsreport",  new object[] {false, 199,  -1, 166, 167, -1, -1}},
         {"r-newsmenu",    new object[] {false, 199, 162, 138, 137, -1, -1}},
         {"r-lf3",         new object[] {false, 199,  -1, 213, 169, -1, -1}},
@@ -373,44 +379,46 @@ startup
         {"b-endmuffet",   new object[] {false, 199,  -1, 306, 177, 56, -1}},
         {"r-muffet",      new object[] {false, 199,  -1, 177, 178, -1, -1}},
         {"r-operaskip",   new object[] {false, 199,  -1, 179, 181, -1, -1}},
+        {"r-colorpuzzle", new object[] {false, 199,  -1, 180, 181, -1, -1}},
         {"r-operamenu",   new object[] {false, 199, 176, 138, 137, -1, -1}},
         {"r-rf3",         new object[] {false, 199,  -1, 213, 187, -1, -1}},
         {"r-entercore",   new object[] {false, 199,  -1, 188, 189, -1, -1}},
         {"b-startmtt",    new object[] {false, 199,  -1, 211, 306, 80, -1}},
-        {"b-endmtt",      new object[] {false, 199,  -1, 306, 211, -1,  7}},
+        {"b-endmtt",      new object[] {false, 199,  -1, 306, 211, -1,  8}},
         {"r-exitmtt",     new object[] {false, 199,  -1, 211, 212, -1, -1}},
         {"b-endneo",      new object[] {false, 199,  -1, 306, 211, 94, -1}},
 
         // New Home
-        {"f-longelevator",      new object[] {false, -1, -1, 215, 216,  -1,  8}},
+        {"f-longelevator",      new object[] {false, -1, -1, 215, 216,  -1,  9}},
         {"f-afterlongelevator", new object[] {false, -1, -1, 216, 217,  -1, -1}},
         {"f-enternewhome",      new object[] {false, -1, -1, 219, 220,  -1, -1}},
         {"r-entersanshall",     new object[] {false, -1, -1, 230, 231,  -1, -1}},
         {"r-exitsanshall",      new object[] {false, -1, -1, 231, 232,  95, -1}},
         {"b-startsans",         new object[] {false, -1, -1, 231, 306,  95, -1}},
         {"b-endsans",           new object[] {false, -1, -1, 306, 231,  95, -1}},
-        {"f-genoend",           new object[] {false, -1, -1,  -1, 306,  -1,  9}},
+        {"f-genoend",           new object[] {false, -1, -1,  -1, 306,  -1, 10}},
         {"b-enterbarrier",      new object[] {false, -1, -1, 236, 237,  -1, -1}},
         {"b-startasgore",       new object[] {false, -1, -1, 237, 306, 100, -1}},
-        {"b-killasgore",        new object[] {false, -1, -1,  -1, 306, 100, 10}},
+        {"b-killasgore",        new object[] {false, -1, -1,  -1, 306, 100, 11}},
         {"b-endasgore",         new object[] {false, -1, -1, 306, 322, 100, -1}},
         {"p-neutralend",        new object[] {false, -1, 30,  -1, 238,  -1, -1}},
 
         // True Pacifist
-        {"r-undynedate",   new object[] {false, -1, -1, 117, 116,  -1, 11}},
+        {"r-undynedate",   new object[] {false, -1, -1, 117, 116,  -1, 12}},
         {"r-alphys",       new object[] {false, -1, -1, 318, 113,  -1, -1}},
         {"r-startlab",     new object[] {false, -1, -1, 243, 244,  -1, -1}},
+        {"f-endlabtext",   new object[] {false, -1, -1,  -1, 261,  -1, 13}},
         {"r-endlab",       new object[] {false, -1, -1, 261, 216,  -1, -1}},
         {"b-startasriel",  new object[] {false, -1, -1,  -1, 306, 255, -1}},
         {"b-onewingangel", new object[] {false, -1, -1,  -1, 306, 256, -1}},
         {"b-endasriel",    new object[] {false, -1, -1, 306, 331, 256, -1}},
-        {"f-tpeend",       new object[] {false, -1, -1,  -1, 241,  -1, 12}},
+        {"f-tpeend",       new object[] {false, -1, -1,  -1, 241,  -1, 14}},
         
         // Genocide
-        {"g-ruins20",   new object[] {false, -1, -1, -1, -1, -1, 13}},
-        {"g-snowf16",   new object[] {false, -1, -1, -1, -1, -1, 14}},
-        {"g-water18",   new object[] {false, -1, -1, -1, -1, -1, 15}},
-        {"g-hotland40", new object[] {false, -1, -1, -1, -1, -1, 16}}
+        {"g-ruins20",   new object[] {false, -1, -1, -1, -1, -1, 15}},
+        {"g-snowf16",   new object[] {false, -1, -1, -1, -1, -1, 16}},
+        {"g-water18",   new object[] {false, -1, -1, -1, -1, -1, 17}},
+        {"g-hotland40", new object[] {false, -1, -1, -1, -1, -1, 18}}
     };
 
     var cache = new Dictionary<string, LiveSplit.UI.Components.ILayoutComponent>();
@@ -828,67 +836,75 @@ split
                         break;
 
                     // Main Splits
-                    case 1: // f-papyrus
+                    case 1: // r-exitnapstas
+                        pass = (vars.checkInventory(current.inv, 7) || vars.checkInventory(current.inv, 10));
+                        break;
+
+                    case 2: // f-papyrus
                         pass = ((old.papyrus < 0 && current.papyrus == 0) || current.papyrus == 1);
                         break;
 
-                    case 2: // f-spears2bridge
+                    case 3: // f-spears2bridge
                         pass = (old.sound == 13 && current.sound == 20);
                         break;
 
-                    case 3: // f-spears2cut
+                    case 4: // f-spears2cut
                         pass = (old.sound == 20 && current.sound == 22);
                         break;
 
-                    case 4: // f-temmie
+                    case 5: // f-temmie
                         pass = (old.money - current.money > 999);
                         break;
 
-                    case 5: // r-flowerflow18k
+                    case 6: // r-flowerflow18k
                         pass = (current.kills_waterfall >= 18);
                         break;
 
-                    case 6: // b-endrgfight
+                    case 7: // b-endrgfight
                         pass = (current.room == 153 || current.room == 165);
                         break;
 
-                    case 7: // b-endmtt
+                    case 8: // b-endmtt
                         pass = (current.battle == 80 || current.battle == 81);
                         break;
 
-                    case 8: // f-longelevator
+                    case 9: // f-longelevator
                         pass = (old.room == 215 && current.room == 216);
                         break;
 
-                    case 9: // f-genoend
+                    case 10: // f-genoend
                         pass = (old.chara == 8 && current.chara > 8);
                         break;
 
-                    case 10: // b-killasgore
+                    case 11: // b-killasgore
                         pass = (old.fakesoul_x > 60 && old.fakesoul_x < 200 && current.fakesoul_x == 0);
                         break;
 
-                    case 11: // r-undynedate
+                    case 12: // r-undynedate
                         pass = (old.status_undyne == 4 && current.status_undyne == 5);
                         break;
 
-                    case 12: // f-tpeend
+                    case 13: // f-endlabtext
+                        pass = (old.sound > 21 && (current.sound == 13 || current.sound == 21));
+                        break;
+
+                    case 14: // f-tpeend
                         pass = (old.handhold == 69 && current.handhold > 69);
                         break;
 
-                    case 13: // g-ruins20
+                    case 15: // g-ruins20
                         pass = (current.kpointer == 202 && old.kills_ruins < 20 && current.kills_ruins >= 20);
                         break;
 
-                    case 14: // g-snowf16
+                    case 16: // g-snowf16
                         pass = (current.kpointer == 203 && old.kills_tundra < 16 && current.kills_tundra >= 16);
                         break;
 
-                    case 15: // g-water18
+                    case 17: // g-water18
                         pass = (current.kpointer == 204 && old.kills_waterfall < 18 && current.kills_waterfall >= 18);
                         break;
 
-                    case 16: // g-hotland40
+                    case 18: // g-hotland40
                         pass = (current.kpointer == 205 && old.kills_hotland < 40 && current.kills_hotland >= 40);
                         break;
                         
